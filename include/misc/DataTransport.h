@@ -4,7 +4,9 @@
 #include "Socket2.h"
 //#include "TList.hpp"
 #include <vector>
-#include "gtl/smart_ptr_container.h"
+//#include "gtl/smart_ptr_container.h"
+#include <deque>
+#include <mutex>
 
 //=============================================================================
 //
@@ -32,7 +34,7 @@ public:
 	uint16_t iPacketIndex;
 	UINT nPacket;
 	std::vector<BYTE> packetStatus;
-	std::vector<std::vector<BYTE> > data;
+	std::vector<std::vector<BYTE>> data;
 	CEvent evt;
 	DWORD dwTickLast;
 	BOOL bComplete;
@@ -48,8 +50,8 @@ public:
 		dwTickLast = GetTickCount();
 		bComplete = FALSE;
 	}
-	CDataTransportUDPPacket(const CDataTransportUDPPacket& B) { ASSERT(FALSE); }
-	CDataTransportUDPPacket& operator = (const CDataTransportUDPPacket& B) { ASSERT(FALSE); return *this; }
+	CDataTransportUDPPacket(const CDataTransportUDPPacket& B) = delete;//{ ASSERT(FALSE); }
+	CDataTransportUDPPacket& operator = (const CDataTransportUDPPacket& B) = delete;//{ ASSERT(FALSE); return *this; }
 	~CDataTransportUDPPacket() { evt.Unlock(); }
 };
 //-----------------------------------------------------------------------------
@@ -59,7 +61,10 @@ protected:
 	long m_nPort {};
 	long m_iPacketIndex {};
 	DWORD m_dwTimeout1{100}, m_dwTimeout2{1000};
-	gtl::TConcurrentUPtrDeque<CDataTransportUDPPacket> m_DTPackets;
+	std::shared_mutex m_mtxDTPacket;
+	//gtl::TConcurrentUPtrDeque<CDataTransportUDPPacket> m_DTPackets;
+	using packet_t = std::deque<std::unique_ptr<CDataTransportUDPPacket>>;
+	packet_t m_DTPackets;
 public:
 	CDataTransportUDP();
 	virtual ~CDataTransportUDP();
@@ -87,8 +92,12 @@ protected:
 		CString strIPSender;
 		UINT nPortSender{};
 	};
-	gtl::TConcurrentUPtrDeque<T_RECEIVED> m_received;
+	std::mutex m_mtxReceived;
+	//gtl::TConcurrentUPtrDeque<T_RECEIVED> m_received;
+	std::deque<T_RECEIVED> m_received;
 	DWORD Receiver();
 	DWORD Waiter();
-	static void GarbageCollection(gtl::TConcurrentUPtrDeque<CDataTransportUDPPacket>& DTPackets, DWORD dwTimeout);
+	//static void GarbageCollection(gtl::TConcurrentUPtrDeque<CDataTransportUDPPacket>& DTPackets, DWORD dwTimeout);
+	static void GarbageCollection(packet_t& DTPackets, std::shared_mutex& mtx, DWORD dwTimeout);
 };
+

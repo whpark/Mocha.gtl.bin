@@ -348,6 +348,8 @@ public:
 	int GetScaleDownMethod() const { return m_imgOrg.GetScaleDownMethod(); }
 	int GetScaleUpMethod() const { return m_imgOrg.GetScaleUpMethod(); }
 	void SetResizingMethod(int eScaleDownMethod = cv::INTER_LINEAR, int eScaleUpMethod = cv::INTER_LINEAR, bool bThumbnailInBkgnd = false);
+	bool ScrollByKeyboard(int vkey);
+	void ScrollTo(CPoint2d deltaImage);
 
 protected:
 	bool DrawGrid(CDC& dc, CRect const& rectView);

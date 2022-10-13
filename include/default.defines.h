@@ -254,9 +254,11 @@ typedef size_t count_t;
 #	define max2(a, b) ( ( (a) > (b) ) ? (a) : (b) )
 #endif
 
-#ifndef square
-#	define square(x) ((x)*(x))
-#endif
+//#ifndef square
+//#	define square(x) ((x)*(x))
+//#endif
+template < typename T > requires std::is_arithmetic_v<T>
+T square(T v) { return v*v; }
 #ifndef _sqr
 #	define _sqr(x) ((x)*(x))
 #endif
@@ -312,21 +314,36 @@ constexpr T deg2rad(T deg) { return (deg * _M_PI / 180. ); }
 
 //-----------------------------------------------------------------------------
 
-#ifndef EOL
+// gtl::string_primitives
+//-----------------------------------------------------------------------------
+// Text Constant macros
+#define TEXT_A(x) x
+#define ___WIDE_TEXT(x) L##x
+#define TEXT_W(x) ___WIDE_TEXT(x)
+#define ___UTF8_TEXT(x) u8##x
+#define TEXT_u8(x) ___UTF8_TEXT(x)
+#define ___UTF16_TEXT(x) u##x
+#define TEXT_u(x) ___UTF16_TEXT(x)
+#define ___UTF32_TEXT(x) U##x
+#define TEXT_U(x) ___UTF32_TEXT(x)
+
+#define _EOL			"\r\n"
+#define EOL				TEXT_A(_EOL)
+#define EOLA			TEXT_A(_EOL)
+#define EOLW			TEXT_W(_EOL)
+#define EOLu8			TEXT_u8(_EOL)
+#define EOLu			TEXT_u(_EOL)
+#define EOLU			TEXT_U(_EOL)
+#define SPACE_STRING	" \t\r\n"
+
+#ifndef EOLT
 	#ifdef _UNICODE
-		#define EOL L"\r\n"
+		#define EOLT L"\r\n"
 	#else
-		#define EOL "\r\n"
+		#define EOLT "\r\n"
 	#endif
 #endif
 
-#ifndef EOLW
-	#define EOLW L"\r\n"
-#endif
-
-#ifndef EOLA
-	#define EOLA "\r\n"
-#endif
 
 #ifndef BIT
 	#define BIT(x) (0x01 << (x))

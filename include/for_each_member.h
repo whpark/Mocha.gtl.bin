@@ -308,7 +308,7 @@ namespace std {
 			strU8.ReleaseBuffer();
 			j = (LPCSTR)strU8;
 		} else {
-			j = u8"";
+			j = "";
 		}
 	}
 	inline void from_json(json const& j, wstring& str) {
