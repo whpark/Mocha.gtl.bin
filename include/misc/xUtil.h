@@ -10,6 +10,8 @@
 #include "ArchiveU.h"
 #include "TList.hpp"
 
+#include "gtl/gtl.h"
+
 #pragma pack(push, 8)	// default align. (8 bytes)
 
 #undef _USE_SHELL_API

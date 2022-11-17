@@ -231,22 +231,6 @@ template < typename TDATA >
 	ARCHIVE& Serialize(ARCHIVE& ar) { if (ar.IsStoring()) StoreTo(ar); else  LoadFrom(ar); return ar; }
 
 
-//---------------------------------------------------------------------------------------------------------------------------------
-// array
-template < typename T, size_t n >
-void to_json(json& j, const std::array<T, n>& arr) {
-	j.clear();
-	for (size_t i = 0; i < n; i++)
-		nlohmann::to_json(j[i], arr[i]);
-}
-template < typename T, size_t n >
-void from_json(const json& j, std::array<T, n>& arr) {
-	size_t nItem = _min(n, j.size());
-	for (size_t i = 0; i < nItem; i++)
-		nlohmann::from_json(j[i], arr[i]);
-}
-
-
 // CStringA
 inline void to_json(json& j, const CStringA& str) {
 	CStringW strW(str);
@@ -321,6 +305,39 @@ namespace std {
 			str.clear();
 		}
 	}
+
+	//---------------------------------------------------------------------------------------------------------------------------------
+	// array
+	template < typename T, size_t n >
+	void to_json(json& j, const std::array<T, n>& arr) {
+		j.clear();
+		for (size_t i = 0; i < n; i++)
+			nlohmann::to_json(j[i], arr[i]);
+	}
+	template < typename T, size_t n >
+	void from_json(const json& j, std::array<T, n>& arr) {
+		size_t nItem = std::min(n, j.size());
+		for (size_t i = 0; i < nItem; i++)
+			nlohmann::from_json(j[i], arr[i]);
+	}
+
+	//---------------------------------------------------------------------------------------------------------------------------------
+	// container
+	template < template <typename ... > typename tcontainer, typename T, typename ... targs >
+		requires (requires (tcontainer<T, targs...> lst) { lst[0]; lst.size(); } )
+	void to_json(json& j, const tcontainer<T, targs...>& lst) {
+		j.clear();
+		for (size_t i = 0; i < lst.size(); i++)
+			nlohmann::to_json(j[i], lst[i]);
+	}
+	template < template <typename ... > typename tcontainer, typename T, typename ... targs >
+		requires (requires (tcontainer<T, targs...> lst) { lst[0]; lst.size(); lst.assign(0, {}); } )
+	void from_json(const json& j, tcontainer<T, targs...>& lst) {
+		lst.assign(j.size(), {});
+		for (size_t i = 0; i < j.size(); i++)
+			nlohmann::from_json(j[i], lst[i]);
+	}
+
 }
 
 
