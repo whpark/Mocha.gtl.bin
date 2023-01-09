@@ -207,6 +207,9 @@
 namespace qtl {	// Q(QRS) T(Template) L(library)
 
 
+	template < typename tcontainer >
+	concept has_Reserve = requires (tcontainer container) { container.Reserve(1); };
+
 	//============================================================================================================================================================
 	//============================================================================================================================================================
 	// TSmartPtrContainer
@@ -1047,9 +1050,6 @@ namespace qtl {	// Q(QRS) T(Template) L(library)
 		}
 
 	};
-
-	template < typename tcontainer >
-	concept has_Reserve = requires (tcontainer container) { container.Reserve(1); };
 
 
 	//============================================================================================================================================================
