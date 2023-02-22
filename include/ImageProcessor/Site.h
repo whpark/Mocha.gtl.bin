@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 
 #include "AFX_EXT_IMAGE_PROCESSOR.h"
 
 namespace imgproc {
 
-//<< ±Í¶Ñ¶ó¹Ì. Àå¼º±Ô, 2015.08.
+//<< ê·€ëšœë¼ë¯¸. ìž¥ì„±ê·œ, 2015.08.
 AFX_EXT_API_IMAGE_PROCESSOR BOOL KRB(const cv::Mat& imgOrg, cv::Point2d& ptResultCenter, const int& iThreshold = 30);
 AFX_EXT_API_IMAGE_PROCESSOR BOOL KRB(const cv::Mat& imgOrg, const cv::Rect& rectRoiTop, const cv::Rect& rectRoiLeft, const cv::Rect& rectRoiBottom, const cv::Rect& rectRoiRight, cv::Point2d& ptResultCenter, double& dResultRadius, double& dScore, const int& iThreshold = 127);
 //>>
