@@ -34,6 +34,7 @@ protected:
 	CProfileSection m_settings;
 	BOOL m_bFlipX;
 	BOOL m_bFlipY;
+	bool m_bSplitPixelX{}, m_bSplitPixelY{};
 	int m_eRotate;
 	struct {
 		BOOL bRotateArbitrary;
