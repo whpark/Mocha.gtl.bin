@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "AFX_EXT_MESSAGE_TOOL_WND.h"
 
@@ -47,86 +47,86 @@ public:
 };
 
 /*
-	- ON_IP("Message", "Message", OnIPMessage) // ´Ü¼ø Message Ãâ·Â.
+	- ON_IP("Message", "Message", OnIPMessage) // ë‹¨ìˆœ Message ì¶œë ¥.
 		var :
 			"Width" : int, defaule : 600 -> MessageWnd Width.
 			"Height" : int, defaule : 230 -> MessageWnd Height.
 			"Title" : CString, default : _T("Title")-> Message SetWindowText;
 
-			"Font" : CString, default : _T("¸¼Àº°íµñ") -> Message Font;
-			"FontSize" : int, default : 10 -> Message ±Û¾¾ Å©±â;
-			"FontWeight" : int, default : 300 -> Message ±Û¾¾ ±½±â;
-			"TextColor" : COLORREF, default : RGB_BLACK -> ±ÛÀÚ»ö;
-			"BkColor" : COLORREF, default : GetSysColor(CTLCOLOR_DLG) -> ¹è°æ»ö
-			"PenColor" : COLORREF, default : RGB_BLACK -> Ææ»ö;
+			"Font" : CString, default : _T("ë§‘ì€ê³ ë”•") -> Message Font;
+			"FontSize" : int, default : 10 -> Message ê¸€ì”¨ í¬ê¸°;
+			"FontWeight" : int, default : 300 -> Message ê¸€ì”¨ êµµê¸°;
+			"TextColor" : COLORREF, default : RGB_BLACK -> ê¸€ììƒ‰;
+			"BkColor" : COLORREF, default : GetSysColor(CTLCOLOR_DLG) -> ë°°ê²½ìƒ‰
+			"PenColor" : COLORREF, default : RGB_BLACK -> íœìƒ‰;
 
-			"Message" : CString, default : _T("Message") -> Message ³»¿ë.
-			"Button" : CString, default : _T("Ok") -> ¹öÆ° ³»¿ë. ex)Ok;Calce ¿Í °°ÀÌ _T(";")·Î ±¸ºĞµÇ¸ç 4°³±îÁö ÀÔ·Â °¡´É.
-			"Unit" : CString, default : _T("") -> Unit ±¸ºĞ ½Ã »ç¿ë.
-			"Timeout" : int, default : INFINITE -> Message À¯Áö ½Ã°£ (msec). ¹öÆ° Å¬¸¯½Ã ½Ã°£°ú »ó°ü¾øÀÌ Á¾·áµÊ.
+			"Message" : CString, default : _T("Message") -> Message ë‚´ìš©.
+			"Button" : CString, default : _T("Ok") -> ë²„íŠ¼ ë‚´ìš©. ex)Ok;Calce ì™€ ê°™ì´ _T(";")ë¡œ êµ¬ë¶„ë˜ë©° 4ê°œê¹Œì§€ ì…ë ¥ ê°€ëŠ¥.
+			"Unit" : CString, default : _T("") -> Unit êµ¬ë¶„ ì‹œ ì‚¬ìš©.
+			"Timeout" : int, default : INFINITE -> Message ìœ ì§€ ì‹œê°„ (msec). ë²„íŠ¼ í´ë¦­ì‹œ ì‹œê°„ê³¼ ìƒê´€ì—†ì´ ì¢…ë£Œë¨.
 
-		varReault : ¾øÀ½.
+		varReault : ì—†ìŒ.
 
-	- ON_IP("Message", "Response", OnIPResponse) // Message Ãâ·Â ¹× ¹öÆ° ÀÀ´ä.
+	- ON_IP("Message", "Response", OnIPResponse) // Message ì¶œë ¥ ë° ë²„íŠ¼ ì‘ë‹µ.
 		var :
 			"Width" : int, defaule : 600 -> MessageWnd Width.
 			"Height" : int, defaule : 230 -> MessageWnd Height.
 			"Title" : CString, default : _T("Title")-> Message SetWindowText;
 
-			"Font" : CString, default : _T("¸¼Àº°íµñ") -> Message Font;
-			"FontSize" : int, default : 10 -> Message ±Û¾¾ Å©±â;
-			"FontWeight" : int, default : 300 -> Message ±Û¾¾ ±½±â;
-			"TextColor" : COLORREF, default : RGB_BLACK -> ±ÛÀÚ»ö;
-			"BkColor" : COLORREF, default : GetSysColor(CTLCOLOR_DLG) -> ¹è°æ»ö
-			"PenColor" : COLORREF, default : RGB_BLACK -> Ææ»ö;
+			"Font" : CString, default : _T("ë§‘ì€ê³ ë”•") -> Message Font;
+			"FontSize" : int, default : 10 -> Message ê¸€ì”¨ í¬ê¸°;
+			"FontWeight" : int, default : 300 -> Message ê¸€ì”¨ êµµê¸°;
+			"TextColor" : COLORREF, default : RGB_BLACK -> ê¸€ììƒ‰;
+			"BkColor" : COLORREF, default : GetSysColor(CTLCOLOR_DLG) -> ë°°ê²½ìƒ‰
+			"PenColor" : COLORREF, default : RGB_BLACK -> íœìƒ‰;
 
-			"Message" : CString, default : _T("Message") -> Message ³»¿ë.
-			"Button" : CString, default : _T("Ok") -> ¹öÆ° ³»¿ë. ex)Ok;Calce ¿Í °°ÀÌ _T(";")·Î ±¸ºĞµÇ¸ç 4°³±îÁö ÀÔ·Â °¡´É.
-			"Unit" : CString, default : _T("") -> Unit ±¸ºĞ ½Ã »ç¿ë.
-			"Timeout" : int, default : INFINITE -> Message À¯Áö ½Ã°£ (msec). ¹öÆ° Å¬¸¯½Ã ½Ã°£°ú »ó°ü¾øÀÌ Á¾·áµÊ.
+			"Message" : CString, default : _T("Message") -> Message ë‚´ìš©.
+			"Button" : CString, default : _T("Ok") -> ë²„íŠ¼ ë‚´ìš©. ex)Ok;Calce ì™€ ê°™ì´ _T(";")ë¡œ êµ¬ë¶„ë˜ë©° 4ê°œê¹Œì§€ ì…ë ¥ ê°€ëŠ¥.
+			"Unit" : CString, default : _T("") -> Unit êµ¬ë¶„ ì‹œ ì‚¬ìš©.
+			"Timeout" : int, default : INFINITE -> Message ìœ ì§€ ì‹œê°„ (msec). ë²„íŠ¼ í´ë¦­ì‹œ ì‹œê°„ê³¼ ìƒê´€ì—†ì´ ì¢…ë£Œë¨.
 
 		varReault : 
-			"ButtonResult" : CString, ¼±ÅÃÇÑ ¹öÆ°ÀÇ ³»¿ë.
+			"ButtonResult" : CString, ì„ íƒí•œ ë²„íŠ¼ì˜ ë‚´ìš©.
 
-	- ON_IP("Message", "Input", OnIPInput) // Message Ãâ·Â ¹× ÀÔ·Â µÈ ³»¿ë ÀÀ´ä.
+	- ON_IP("Message", "Input", OnIPInput) // Message ì¶œë ¥ ë° ì…ë ¥ ëœ ë‚´ìš© ì‘ë‹µ.
 		var :
 			"Width" : int, defaule : 600 -> MessageWnd Width.
 			"Height" : int, defaule : 230 -> MessageWnd Height.
 			"Title" : CString, default : _T("Title")-> Message SetWindowText;
 
-			"Font" : CString, default : _T("¸¼Àº°íµñ") -> Message Font;
-			"FontSize" : int, default : 10 -> Message ±Û¾¾ Å©±â;
-			"FontWeight" : int, default : 300 -> Message ±Û¾¾ ±½±â;
-			"TextColor" : COLORREF, default : RGB_BLACK -> ±ÛÀÚ»ö;
-			"BkColor" : COLORREF, default : GetSysColor(CTLCOLOR_DLG) -> ¹è°æ»ö
-			"PenColor" : COLORREF, default : RGB_BLACK -> Ææ»ö;
+			"Font" : CString, default : _T("ë§‘ì€ê³ ë”•") -> Message Font;
+			"FontSize" : int, default : 10 -> Message ê¸€ì”¨ í¬ê¸°;
+			"FontWeight" : int, default : 300 -> Message ê¸€ì”¨ êµµê¸°;
+			"TextColor" : COLORREF, default : RGB_BLACK -> ê¸€ììƒ‰;
+			"BkColor" : COLORREF, default : GetSysColor(CTLCOLOR_DLG) -> ë°°ê²½ìƒ‰
+			"PenColor" : COLORREF, default : RGB_BLACK -> íœìƒ‰;
 
-			"Message" : CString, default : _T("Message") -> Message ³»¿ë.
-			"Button" : CString, default : _T("Ok") -> ¹öÆ° ³»¿ë. ex)Ok;Calce ¿Í °°ÀÌ _T(";")·Î ±¸ºĞµÇ¸ç 4°³±îÁö ÀÔ·Â °¡´É. (InputÀÇ °æ¿ì 4¹øÂ° ¹öÆ° 1°³¸¸ Ãâ·Â.)
-			"Unit" : CString, default : _T("") -> Unit ±¸ºĞ ½Ã »ç¿ë.
-			"Timeout" : int, default : INFINITE -> Message À¯Áö ½Ã°£ (msec). ¹öÆ° Å¬¸¯½Ã ½Ã°£°ú »ó°ü¾øÀÌ Á¾·áµÊ.
-			"Password" : BOOL, defalult : FALSE -> ÀÔ·Â ¹ŞÀ» ³»¿ëÀ» Password·Î Ç¥½ÃÇÒ Áö ¿©ºÎ.
+			"Message" : CString, default : _T("Message") -> Message ë‚´ìš©.
+			"Button" : CString, default : _T("Ok") -> ë²„íŠ¼ ë‚´ìš©. ex)Ok;Calce ì™€ ê°™ì´ _T(";")ë¡œ êµ¬ë¶„ë˜ë©° 4ê°œê¹Œì§€ ì…ë ¥ ê°€ëŠ¥. (Inputì˜ ê²½ìš° 4ë²ˆì§¸ ë²„íŠ¼ 1ê°œë§Œ ì¶œë ¥.)
+			"Unit" : CString, default : _T("") -> Unit êµ¬ë¶„ ì‹œ ì‚¬ìš©.
+			"Timeout" : int, default : INFINITE -> Message ìœ ì§€ ì‹œê°„ (msec). ë²„íŠ¼ í´ë¦­ì‹œ ì‹œê°„ê³¼ ìƒê´€ì—†ì´ ì¢…ë£Œë¨.
+			"Password" : BOOL, defalult : FALSE -> ì…ë ¥ ë°›ì„ ë‚´ìš©ì„ Passwordë¡œ í‘œì‹œí•  ì§€ ì—¬ë¶€.
 
 		varReault :
-			"InputResult" : CString, ÀÔ·ÂÇÑ ³»¿ëÀ» Return.\.
+			"InputResult" : CString, ì…ë ¥í•œ ë‚´ìš©ì„ Return.\.
 
 
-	- ON_IP("Message", "Animation", OnIPAnimatioin) // ¿©·¯°³ÀÇ Message¸¦ ÀÏÁ¤ °£°İ¸¶´Ù º¯°æ ÇÏ¿© Ãâ·Â.
+	- ON_IP("Message", "Animation", OnIPAnimatioin) // ì—¬ëŸ¬ê°œì˜ Messageë¥¼ ì¼ì • ê°„ê²©ë§ˆë‹¤ ë³€ê²½ í•˜ì—¬ ì¶œë ¥.
 		var :
 			"Width" : int, defaule : 600 -> MessageWnd Width.
 			"Height" : int, defaule : 230 -> MessageWnd Height.
 			"Title" : CString, default : _T("Title")-> Message SetWindowText;
 
-			"Font" : CString, default : _T("¸¼Àº°íµñ") -> Message Font;
-			"FontSize" : int, default : 10 -> Message ±Û¾¾ Å©±â;
-			"FontWeight" : int, default : 300 -> Message ±Û¾¾ ±½±â;
-			"TextColor" : COLORREF, default : RGB_BLACK -> ±ÛÀÚ»ö;
-			"BkColor" : COLORREF, default : GetSysColor(CTLCOLOR_DLG) -> ¹è°æ»ö
-			"PenColor" : COLORREF, default : RGB_BLACK -> Ææ»ö;
+			"Font" : CString, default : _T("ë§‘ì€ê³ ë”•") -> Message Font;
+			"FontSize" : int, default : 10 -> Message ê¸€ì”¨ í¬ê¸°;
+			"FontWeight" : int, default : 300 -> Message ê¸€ì”¨ êµµê¸°;
+			"TextColor" : COLORREF, default : RGB_BLACK -> ê¸€ììƒ‰;
+			"BkColor" : COLORREF, default : GetSysColor(CTLCOLOR_DLG) -> ë°°ê²½ìƒ‰
+			"PenColor" : COLORREF, default : RGB_BLACK -> íœìƒ‰;
 
-			"Message" : CString, default : _T("Message") -> Message ³»¿ë. ex)Message 1;Message 2;Message 3 ¿Í °°ÀÌ _T(";")·Î ±¸ºĞµÇ¸ç ÀÔ·Â µÈ °¹¼ö * "AnimationInterval" ¸¸Å­ Message°¡ À¯ÁöµÊ.
-			"Button" : CString, default : _T("Ok") -> ¹öÆ° ³»¿ë. ex)Ok;Calce ¿Í °°ÀÌ _T(";")·Î ±¸ºĞµÇ¸ç 4°³±îÁö ÀÔ·Â °¡´É. (InputÀÇ °æ¿ì 4¹øÂ° ¹öÆ° 1°³¸¸ Ãâ·Â.)
-			"Unit" : CString, default : _T("") -> Unit ±¸ºĞ ½Ã »ç¿ë.
-			"AnimationInterval" : int, default : 1000 msec -> Message³»¿ë º¯°æ ½Ã°£.
-		varReault : ¾øÀ½.
+			"Message" : CString, default : _T("Message") -> Message ë‚´ìš©. ex)Message 1;Message 2;Message 3 ì™€ ê°™ì´ _T(";")ë¡œ êµ¬ë¶„ë˜ë©° ì…ë ¥ ëœ ê°¯ìˆ˜ * "AnimationInterval" ë§Œí¼ Messageê°€ ìœ ì§€ë¨.
+			"Button" : CString, default : _T("Ok") -> ë²„íŠ¼ ë‚´ìš©. ex)Ok;Calce ì™€ ê°™ì´ _T(";")ë¡œ êµ¬ë¶„ë˜ë©° 4ê°œê¹Œì§€ ì…ë ¥ ê°€ëŠ¥. (Inputì˜ ê²½ìš° 4ë²ˆì§¸ ë²„íŠ¼ 1ê°œë§Œ ì¶œë ¥.)
+			"Unit" : CString, default : _T("") -> Unit êµ¬ë¶„ ì‹œ ì‚¬ìš©.
+			"AnimationInterval" : int, default : 1000 msec -> Messageë‚´ìš© ë³€ê²½ ì‹œê°„.
+		varReault : ì—†ìŒ.
 */

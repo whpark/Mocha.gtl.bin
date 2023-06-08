@@ -1,4 +1,4 @@
-// MIPServerUI.h : main header file for the MIPServerUI DLL
+﻿// MIPServerUI.h : main header file for the MIPServerUI DLL
 //
 
 #pragma once

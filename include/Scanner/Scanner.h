@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "AFX_EXT_SCANNER.h"
 

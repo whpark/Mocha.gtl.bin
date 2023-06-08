@@ -1,4 +1,4 @@
-//
+ï»¿//
 //
 //
 //		AUTHOR							: MyungSic, Kim	(PWH touched)
@@ -13,16 +13,16 @@
 #include "misc/ListCtrlEd.h"
 #include "misc/ListCtrlColumnEx.h"
 
-/* °¡»óÇÔ¼ö ³»¿ë
+/* ê°€ìƒí•¨ìˆ˜ ë‚´ìš©
 	
-	< ¼ø¼ö °¡»óÇÔ¼ö >
+	< ìˆœìˆ˜ ê°€ìƒí•¨ìˆ˜ >
 	virtual CString			GetRecipeName(const T* pData) const			= NULL;			return pData->strName;
 	virtual CString			SetRecipeName(T* pData, CString strName)	= NULL;			return pData->strName = strName;
-	virtual void			DataParsing(T* pData, BOOL bStore)			= NULL;			m_profileº¯¼ö »ç¿ëÇØ¾ß ÇÔ ( Save()ÇÔ¼ö È£Ãâx )
+	virtual void			DataParsing(T* pData, BOOL bStore)			= NULL;			m_profileë³€ìˆ˜ ì‚¬ìš©í•´ì•¼ í•¨ ( Save()í•¨ìˆ˜ í˜¸ì¶œx )
 	
-	< °¡»óÇÔ¼ö >
-	virtual void			SetListData(const T* pData, int iItemIndex);				ListCtrl»ç¿ëÇÒ °æ¿ì ±¸ÇöÇÊ¿ä
-		InsertItem() È£Ãâx
+	< ê°€ìƒí•¨ìˆ˜ >
+	virtual void			SetListData(const T* pData, int iItemIndex);				ListCtrlì‚¬ìš©í•  ê²½ìš° êµ¬í˜„í•„ìš”
+		InsertItem() í˜¸ì¶œx
 		m_pList->SetItemText(iItemIndex, eDATE, pData->szDate);
 		m_pList->SetItemText(iItemIndex, eNAME, pData->szName);
 		...
@@ -30,16 +30,16 @@
 
 namespace DR {
 	typedef enum {
-		eSUCCESS = 0,		// Recipe¸¦ Áö¿üÀ½
+		eSUCCESS = 0,		// Recipeë¥¼ ì§€ì› ìŒ
 
-		eAPPLIED_ERROR,		// Àû¿ëµÈ Recipe¶ó Áö¿öÁöÁö ¾ÊÀ½
-		eLAST_ERROR,		// ¸¶Áö¸· Recipe¶ó Áö¿öÁöÁö ¾ÊÀ½
-		eITEM_ERROR,		// Áö¿ö¾ß ÇÒ °÷ÀÌ ¾øÀ½
-		eDELETE_ERROR,		// Recipe¸¦ Áö¿ì´Âµ¥ ½ÇÆĞÇÔ
+		eAPPLIED_ERROR,		// ì ìš©ëœ Recipeë¼ ì§€ì›Œì§€ì§€ ì•ŠìŒ
+		eLAST_ERROR,		// ë§ˆì§€ë§‰ Recipeë¼ ì§€ì›Œì§€ì§€ ì•ŠìŒ
+		eITEM_ERROR,		// ì§€ì›Œì•¼ í•  ê³³ì´ ì—†ìŒ
+		eDELETE_ERROR,		// Recipeë¥¼ ì§€ìš°ëŠ”ë° ì‹¤íŒ¨í•¨
 	} eDELETE_RECIPE;
 };
 
-template <typename T, typename LISTCTRL = CListCtrlEd> // ListCtrl »ç¿ë ÇÒ °æ¿ì SetListDataÇÔ¼ö ¹İµå½Ã ±¸Çö
+template <typename T, typename LISTCTRL = CListCtrlEd> // ListCtrl ì‚¬ìš© í•  ê²½ìš° SetListDataí•¨ìˆ˜ ë°˜ë“œì‹œ êµ¬í˜„
 class IRecipeData {
 public:
 	typedef DR::eDELETE_RECIPE	eDELETE_RECIPE;
@@ -58,7 +58,7 @@ protected:
 	CString			m_strExtension;
 	
 public:
-	void			SetListCtrl(LISTCTRL* pList) { m_pList = pList; }	// SetListData Á¤ÀÇ ÇÊ¿ä
+	void			SetListCtrl(LISTCTRL* pList) { m_pList = pList; }	// SetListData ì •ì˜ í•„ìš”
 
 	CString			SetDirectoryPath(CString strPath);
 	CString			GetDirectoryPath() const { return m_strPath; }
@@ -107,7 +107,7 @@ public:
 	T&			operator[](int iIndex)			{ return m_data[iIndex]; }
 	const T&	operator[](int iIndex) const	{ return m_data[iIndex]; }
 
-	// ListCtrlÀº º¹»ç ¾ÈÇÔ
+	// ListCtrlì€ ë³µì‚¬ ì•ˆí•¨
 	IRecipeData& operator=(const IRecipeData& B) {
 		if (&B == this) return *this;
 		m_data			= B.m_data;
@@ -118,14 +118,14 @@ public:
 		return *this;
 	}
 
-//<< °¡»óÇÔ¼ö
+//<< ê°€ìƒí•¨ìˆ˜
 protected:
-	// ¹İµå½Ã ±¸Çö
+	// ë°˜ë“œì‹œ êµ¬í˜„
 	virtual CString			GetRecipeName(const T* pData) const			= NULL;
 	virtual CString			SetRecipeName(T* pData, CString strName)	= NULL;
 	virtual void			DataParsing(T* pData, BOOL bStore)			= NULL;
 
-	// ListCtrl »ç¿ë ÇÒ °æ¿ì ¹Û¿¡¼­ ±¸Çö
+	// ListCtrl ì‚¬ìš© í•  ê²½ìš° ë°–ì—ì„œ êµ¬í˜„
 	virtual void			SetListData(const T* pData, int iItemIndex) {}
 
 //>>

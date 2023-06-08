@@ -1,9 +1,9 @@
-#pragma once
+ï»¿#pragma once
 
 //=============================================================================
-// CEditBox - by ÀÌ¹üÈ£ 2014.01.23.
+// CEditBox - by ì´ë²”í˜¸ 2014.01.23.
 //
-// »ç¿ë¹ı : 
+// ì‚¬ìš©ë²• : 
 //
 
 #include "AFX_EXT_MISC.h"
@@ -78,16 +78,16 @@ protected:
 public:
 	CString strEditEnd;
 public :
-// EditStart Áö¿ªº¯¼ö ÇÒ´ç ±İÁö.
-// bEditEnd == TRUEÀÏ °æ¿ì EditStart Áö¿ªº¯¼ö »ç¿ë °¡´É. //Edit End ÇÔ¼ö µû·Î Ã³¸®.
-	void EditStart(CWnd* pWnd, CRect rect, int& iValue, BOOL bEditEnd = FALSE, int iMinValue = -INT_MAX, int iMaxValue = INT_MAX, DWORD dwStyle = ES_LEFT | ES_AUTOHSCROLL, int iFontPointSize = 9, CString strFont = _T("Segoe UI")); // PixelÀÌ ¾Æ´Ñ Point Size);
+// EditStart ì§€ì—­ë³€ìˆ˜ í• ë‹¹ ê¸ˆì§€.
+// bEditEnd == TRUEì¼ ê²½ìš° EditStart ì§€ì—­ë³€ìˆ˜ ì‚¬ìš© ê°€ëŠ¥. //Edit End í•¨ìˆ˜ ë”°ë¡œ ì²˜ë¦¬.
+	void EditStart(CWnd* pWnd, CRect rect, int& iValue, BOOL bEditEnd = FALSE, int iMinValue = -INT_MAX, int iMaxValue = INT_MAX, DWORD dwStyle = ES_LEFT | ES_AUTOHSCROLL, int iFontPointSize = 9, CString strFont = _T("Segoe UI")); // Pixelì´ ì•„ë‹Œ Point Size);
 	void EditStart(CWnd* pWnd, CRect rect, double& dValue, BOOL bEditEnd = FALSE, int iPoint = 3, double dMinValue = -DBL_MAX, double dMaxValue = DBL_MAX, DWORD dwStyle = ES_LEFT | ES_AUTOHSCROLL, int iFontPointSize = 9, CString strFont = _T("Segoe UI"));
 	void EditStart(CWnd* pWnd, CRect rect, CStringA& strValue, BOOL bEditEnd = FALSE, DWORD dwStyle = ES_LEFT | ES_AUTOHSCROLL, int iFontPointSize = 9, CString strFont = _T("Segoe UI"));
 	void EditStart(CWnd* pWnd, CRect rect, CStringW& strValue, BOOL bEditEnd = FALSE, DWORD dwStyle = ES_LEFT | ES_AUTOHSCROLL, int iFontPointSize = 9, CString strFont = _T("Segoe UI"));
 	void EditEnd();
 
 protected:
-	void EditSetting(CWnd* pWnd, CRect rect, DWORD dwStyle = ES_LEFT, int iFontPointSize = 9, CString strFont = _T("Segoe UI")); //Font Setting ¹× CEditBoxEx »ı¼º.
+	void EditSetting(CWnd* pWnd, CRect rect, DWORD dwStyle = ES_LEFT, int iFontPointSize = 9, CString strFont = _T("Segoe UI")); //Font Setting ë° CEditBoxEx ìƒì„±.
 };
 AFX_EXT_API_MISC void EditStart(CWnd* pWnd, CRect rect, CStringA& strValue, BOOL bEditEnd = FALSE, BOOL bOsk = FALSE, DWORD dwStyle = ES_LEFT | ES_AUTOHSCROLL, int iFontPointSize = 9, CString strFont = _T("Segoe UI"));
 AFX_EXT_API_MISC void EditStart(CWnd* pWnd, CRect rect, CStringW& strValue, BOOL bEditEnd = FALSE, BOOL bOsk = FALSE, DWORD dwStyle = ES_LEFT | ES_AUTOHSCROLL, int iFontPointSize = 9, CString strFont = _T("Segoe UI"));

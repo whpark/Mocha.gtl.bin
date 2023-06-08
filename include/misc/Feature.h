@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "misc/AFX_EXT_MISC.h"
 

@@ -536,6 +536,7 @@ public:
 	typedef IListDefaultData< T, TP, TPC, INDEX_T, SIZE_T > parent_t;
 	typedef TLISTITER iter_t;
 	typedef T type_t;
+	using this_t = IList;
 //	IList(bool bAutoDeleteObject = true, bool bInterlockedMode = false) : IListDefaultData(bAutoDeleteObject, bInterlockedMode), TLISTITER(m_nItem, &m_nInterlockCounter, m_pCS) { }
 	IList(bool bAutoDeleteObject, bool bInterlockedMode, void* pData)
 		: parent_t(bAutoDeleteObject, bInterlockedMode),
@@ -585,8 +586,8 @@ public:
 
 	//-----------------------
 	// Compare
-	template < class TLIST >
-	bool operator == (const TLIST& B) const { return Compare(B); }
+	template < class T2, class TP2, class TPC2, typename INDEX_T2, typename SIZE_T2, class TLISTITER2 >
+	bool operator == (IList<T2, TP2, TPC2, INDEX_T2, SIZE_T2, TLISTITER2> const& B) const { return Compare(B); }
 
 	template < class TLIST >
 	bool Compare(const TLIST& B) const {

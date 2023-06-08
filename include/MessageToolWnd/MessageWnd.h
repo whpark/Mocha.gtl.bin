@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "AFX_EXT_MESSAGE_TOOL_WND.h"
 
